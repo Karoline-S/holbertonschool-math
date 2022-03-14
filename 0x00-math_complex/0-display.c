@@ -9,17 +9,17 @@
 
 void display_complex_number(complex c)
 {
-	if (c.re == 0)
+	if (c.real == 0)
 	{
-		printf("%.0f\n", c.im);
+		printf("%.0f\n", c.imag);
 		return;
 	}
 
-	if (c.im == 0)
+	if (c.imag == 0)
 	{
-		printf("%.0f\n", c.re);
+		printf("%.0f\n", c.real);
 		return;
 	}
 
-	printf("%.0f %+.0fi\n", c.re, c.im);
+	printf("%.0f + %.0fi\n", c.real, c.imag);
 }
