@@ -21,5 +21,9 @@ void display_complex_number(complex c)
 		return;
 	}
 
-	printf("%.0f + %.0fi\n", c.real, c.imag);
+	if ((c.real > 0 && c.imag > 0) || (c.real < 0 && c.imag < 0))
+		printf("%.0f + %.0fi\n", c.real, c.imag);
+
+	else
+		printf("%.0f - %.0fi\n", c.real, c.imag);
 }
