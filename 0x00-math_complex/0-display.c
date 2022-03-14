@@ -9,21 +9,21 @@
 
 void display_complex_number(complex c)
 {
-	if (c.real == 0)
+	if (c.re == 0)
 	{
-		printf("%.0f\n", c.imag);
+		printf("%.0f\n", c.im);
 		return;
 	}
 
-	if (c.imag == 0)
+	if (c.im == 0)
 	{
-		printf("%.0f\n", c.real);
+		printf("%.0f\n", c.re);
 		return;
 	}
 
-	if ((c.real > 0 && c.imag > 0) || (c.real < 0 && c.imag < 0))
-		printf("%.0f + %.0fi\n", c.real, c.imag);
+	if ((c.re > 0 && c.im > 0) || (c.re < 0 && c.im < 0))
+		printf("%.0f + %.0fi\n", c.re, c.im);
 
 	else
-		printf("%.0f - %.0fi\n", c.real, c.imag);
+		printf("%.0f - %.0fi\n", c.re, c.im);
 }
