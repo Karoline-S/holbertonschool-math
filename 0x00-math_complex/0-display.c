@@ -1,6 +1,33 @@
 #include "holberton.h"
 #include <stdio.h>
 
+void print_real_part(double re)
+{
+	if (re == 0)
+		return;
+
+	printf("%.0f", re);
+}
+
+
+void print_imaginary_part(double im, double re)
+{
+	if (im == 0)
+		return;
+
+	if (im < 0)
+	{
+		im = im * -1;
+		printf("- ");
+	}
+	else if (re != 0)
+	{
+		printf("+ ");
+	}
+
+	printf("%.0fi", im);
+}
+
 /**
  * display_complex_number - display complex numbers
  * @c: pointer to struct complex
@@ -9,37 +36,17 @@
 
 void display_complex_number(complex c)
 {
-	if (c.re == 0)
+	if (c.re == 0 && c.im == 0)
 	{
-		printf("%.0f\n", c.im);
+		printf("0\n");
 		return;
 	}
 
-	if (c.im == 0)
-	{
-		printf("%.0f\n", c.re);
-		return;
-	}
+	print_real_part(c.re);
 
-	if (c.re > 0 && c.im > 0)
-		printf("%.0f + %.0fi\n", c.re, c.im);
+	if (c.re != 0)
+		printf(" ");
 
-	if (c.re < 0 && c.im < 0)
-	{
-		c.re = c.re * -1;
-		c.im = c.im * -1;
-		printf("%.0f - %.0fi\n", c.re, c.im);
-	}
-
-	if (c.im < 0)
-	{
-		c.im = c.im * -1;
-		printf("%.0f - %.0fi\n", c.re, c.im);
-	}
-
-	if (c.re < 0)
-	{
-		c.re = c.re * -1;
-		printf("%.0f + %.0fi\n", c.re, c.im);
-	}
+	print_imaginary_part(c.im, c.re);
+	printf("\n");
 }
