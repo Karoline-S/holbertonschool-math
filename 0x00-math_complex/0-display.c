@@ -29,7 +29,10 @@ void print_imaginary_part(double im, double re)
 		printf("+ ");
 	}
 
-	printf("%.0fi", im);
+	if (im == 1)
+		printf("i");
+	else
+		printf("%.0fi", im);
 }
 
 /**
