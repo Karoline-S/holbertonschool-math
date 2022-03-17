@@ -18,7 +18,11 @@ void print_imaginary_part(double im, double re)
 	if (im < 0)
 	{
 		im = im * -1;
-		printf("- ");
+
+		if (re == 0)
+			printf("-");
+		else
+			printf("- ");
 	}
 	else if (re != 0)
 	{
