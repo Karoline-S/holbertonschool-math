@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <math.h>
+
 /**
  * struct complex - for displaying complex numbers
  * @re: the real number
