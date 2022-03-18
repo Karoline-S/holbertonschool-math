@@ -1,16 +1,21 @@
 #include "holberton.h"
 #include <stdio.h>
 
+/**
+ * print_real_part - prints the real part of complex number
+ * @re: the real part
+ * Return: nothing
+ */
 void print_real_part(double re)
 {
-	if (re == 0)
+/*	if (re == 0)
 		return;
-
+*/
 	printf("%.0f", re);
 }
 
 
-void print_imaginary_part(double im, double re)
+void print_imaginary_part(double im)
 {
 	if (im == 0)
 		return;
@@ -19,12 +24,12 @@ void print_imaginary_part(double im, double re)
 	{
 		im = im * -1;
 
-		if (re == 0)
+/*		if (re == 0)
 			printf("-");
-		else
-			printf("- ");
+			else */
+		printf("- ");
 	}
-	else if (re != 0)
+	else
 	{
 		printf("+ ");
 	}
@@ -51,9 +56,9 @@ void display_complex_number(complex c)
 
 	print_real_part(c.re);
 
-	if (c.re != 0)
-		printf(" ");
+/*	if (c.re != 0) */
+	printf(" ");
 
-	print_imaginary_part(c.im, c.re);
+	print_imaginary_part(c.im);
 	printf("\n");
 }
