@@ -8,12 +8,11 @@
  */
 void print_real_part(double re)
 {
-/*	if (re == 0)
-		return;
-*/
-	printf("%.0f", re);
+	if (re - (int)re == 0)
+		printf("%.0f", re);
+	else
+		printf("%.1f", re);
 }
-
 
 void print_imaginary_part(double im)
 {
@@ -23,10 +22,6 @@ void print_imaginary_part(double im)
 	if (im < 0)
 	{
 		im = im * -1;
-
-/*		if (re == 0)
-			printf("-");
-			else */
 		printf("- ");
 	}
 	else
@@ -37,7 +32,12 @@ void print_imaginary_part(double im)
 	if (im == 1)
 		printf("i");
 	else
-		printf("%.0fi", im);
+	{
+		if (im - (int)im == 0)
+			printf("%.0fi", im);
+		else
+			printf("%.1fi", im);
+	}
 }
 
 /**
@@ -45,7 +45,6 @@ void print_imaginary_part(double im)
  * @c: pointer to struct complex
  * Return: nothing
  */
-
 void display_complex_number(complex c)
 {
 	if (c.re == 0 && c.im == 0)
@@ -56,7 +55,6 @@ void display_complex_number(complex c)
 
 	print_real_part(c.re);
 
-/*	if (c.re != 0) */
 	printf(" ");
 
 	print_imaginary_part(c.im);
