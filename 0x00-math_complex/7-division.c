@@ -1,5 +1,4 @@
 #include <math.h>
-#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -29,12 +28,10 @@ void division(complex c1, complex c2, complex *c3)
 	conj.re = c2.re;
 	conj.im = c2.im;
 	conj = conjugate(conj);
-	display_complex_number(conj);
 
 	multiplication(c1, conj, c3);
-	display_complex_number(*c3);
+
 	multiplication(c2, conj, &denom);
-	display_complex_number(denom);
 
 	c3->re = c3->re / denom.re;
 	c3->im = c3->im / denom.re;
