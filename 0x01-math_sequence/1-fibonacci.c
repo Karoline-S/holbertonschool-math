@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "fibonacci.h"
 
-#define PHI (1.0 + sqrt(5)) / 2
+#define RATIO ((1 + sqrt(5)) / 2)
 
 /**
  * add_nodeint - adds a new node at the beginning of a t_cell list
@@ -41,13 +41,14 @@ double gold_number(t_cell *head)
 	{
 		x = (double) head->elt;
 		head = head->next;
+
 		if (head == NULL)
 			break;
-		y = (double) head->elt;
-		printf("x is %f\ny is %f\nDifference is %f\n", x, y, x / y);
 
-		if (x / y == PHI)
-			return (PHI);
+		y = (double) head->elt;
+
+		if  (x / y < 1.618033989 && x / y > 1.6180339)
+			return (RATIO);
 	}
 
 	return (0);
@@ -64,16 +65,17 @@ t_cell *Fibonnaci()
 	t_cell *head = NULL;
 	unsigned int a = 1;
 	unsigned int b = 1;
+	double stop = 0;
 
 	add_nodeint(&head, 1);
 	add_nodeint(&head, 1);
 
-	while (!(gold_number(head)))
+	while (stop != RATIO && a < 50000)
 	{
 		a = a + b;
 		add_nodeint(&head, a);
 		b = a - b;
-		printf("Fib b is %d\nFib a is %d\n", b, a);
+		stop = gold_number(head);
 	}
 
 	return (head);
